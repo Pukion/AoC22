@@ -16,13 +16,30 @@ public class Java {
             while((line = br.readLine()) != null){
                 inputs.add(line);
             }
+            String currentString;
+            int biggestCal = 0;
+            int currentCal = 0;
+            int previousCal = 0;
+            for(int i = 0; i < inputs.size(); i++){
+                currentString = inputs.get(i);
+                if(!currentString.isEmpty()){
+                    currentCal = Integer.valueOf(currentString);
+                    previousCal = previousCal + currentCal;
+                }
+                else{
+                    if(biggestCal < previousCal){
+                        biggestCal = previousCal;
+                        previousCal = 0;
+                    }
+                    else{
+                        previousCal = 0;
+                    }
+                }   
+            }
+        System.out.println(biggestCal);
         }
         catch(Exception e){
             e.printStackTrace();
         }
-    }
-
-    public void printout(ArrayList<String> x){
-        System.out.println(x);
     }
 }
