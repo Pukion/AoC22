@@ -10,13 +10,12 @@ public class dayTwo {
         dayTwo obj = new dayTwo();
 
         try{
-            try(BufferedReader br = new BufferedReader(new FileReader("input2.txt"))) {
+            try(BufferedReader br = new BufferedReader(new FileReader("Input2.txt"))) {
                 List<String> inputs = new ArrayList<>();
 
                 String line;
                 while((line = br.readLine()) != null){
-                    line.replaceAll("\\s+", "");
-                    inputs.add(line);
+                    inputs.add(line.replaceAll("\\s", ""));
                 }
                 System.out.println(inputs);
             }
