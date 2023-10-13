@@ -15,18 +15,19 @@ public class dayTwo {
         obj.startMap();
         
         try{
-            try(BufferedReader br = new BufferedReader(new FileReader("test.txt"))) {
+            try(BufferedReader br = new BufferedReader(new FileReader("Input2.txt"))) {
 
                 String line;
                 while((line = br.readLine()) != null){
                     obj.inputs.add(line.replaceAll("\\s", ""));
                 }
-                System.out.println(obj.inputs);
+                //System.out.println(obj.inputs);
             }
         }
         catch(Exception e){
             e.printStackTrace();
         }
+        obj.calculate();
     }
     
     public void startMap(){
@@ -42,8 +43,15 @@ public class dayTwo {
 
     }
     public void calculate(){
+        int result = 0;
         for(int i = 0; i < inputs.size(); i++){
+            String current = inputs.get(i);
 
+            if(guide.containsKey(current)){
+               int curValue = guide.get(current);
+               result = result + curValue;
+            }
         }
+        System.out.println(result);
     }
 }   
