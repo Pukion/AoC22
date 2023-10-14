@@ -8,11 +8,13 @@ public class dayTwo {
 
     List<String> inputs = new ArrayList<>();
     HashMap<String, Integer> guide = new HashMap<String, Integer>();
+    HashMap<String, Integer> newGuide = new HashMap<String, Integer>();
 
     public static void main(String[] args){
 
         dayTwo obj = new dayTwo();
         obj.startMap();
+        obj.startMap2();
         
         try{
             try(BufferedReader br = new BufferedReader(new FileReader("Input2.txt"))) {
@@ -28,6 +30,7 @@ public class dayTwo {
             e.printStackTrace();
         }
         obj.calculate();
+        obj.calculateTwo();
     }
     
     public void startMap(){
@@ -54,4 +57,38 @@ public class dayTwo {
         }
         System.out.println(result);
     }
+    public void startMap2(){
+        newGuide.put("AX", 3);
+        newGuide.put("AY", 4);
+        newGuide.put("AZ", 8);
+        newGuide.put("BX", 1);
+        newGuide.put("BY", 5);
+        newGuide.put("BZ", 9);
+        newGuide.put("CX", 2);
+        newGuide.put("CY", 6);
+        newGuide.put("CZ", 7);
+    }
+    public void calculateTwo(){
+        int result = 0;
+        for(int i = 0; i < inputs.size(); i++){
+            String current = inputs.get(i);
+
+            if(newGuide.containsKey(current)){
+                int curValue = newGuide.get(current);
+                result = result + curValue;
+            }
+        }
+        System.out.println(result);
+    }
 }   
+
+
+/*
+ * A = Rock 1
+ * B = Paper 2
+ * C = Scissors 3 
+ * 
+ * Y = Draw = 3
+ * X = Lose = 0
+ * Z = Win = 6
+ */
