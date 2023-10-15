@@ -23,16 +23,28 @@ public class dayTwo {
                 while((line = br.readLine()) != null){
                     obj.inputs.add(line.replaceAll("\\s", ""));
                 }
-                //System.out.println(obj.inputs);
             }
         }
         catch(Exception e){
             e.printStackTrace();
         }
-        obj.calculate();
-        obj.calculateTwo();
+        obj.betterCalc(obj.guide);
+        obj.betterCalc(obj.newGuide);
     }
     
+    public void betterCalc(HashMap<String, Integer> changingMap){
+        int result = 0;
+        for(int i = 0; i < inputs.size(); i++){
+            String current = inputs.get(i);
+
+            if(changingMap.containsKey(current)){
+                int curValue = changingMap.get(current);
+                result += curValue;
+            }
+        }
+        System.out.println(result);
+    }
+
     public void startMap(){
         guide.put("AX", 4);
         guide.put("AY", 8);
@@ -45,18 +57,7 @@ public class dayTwo {
         guide.put("CZ", 6);
 
     }
-    public void calculate(){
-        int result = 0;
-        for(int i = 0; i < inputs.size(); i++){
-            String current = inputs.get(i);
-
-            if(guide.containsKey(current)){
-               int curValue = guide.get(current);
-               result = result + curValue;
-            }
-        }
-        System.out.println(result);
-    }
+    
     public void startMap2(){
         newGuide.put("AX", 3);
         newGuide.put("AY", 4);
@@ -68,18 +69,7 @@ public class dayTwo {
         newGuide.put("CY", 6);
         newGuide.put("CZ", 7);
     }
-    public void calculateTwo(){
-        int result = 0;
-        for(int i = 0; i < inputs.size(); i++){
-            String current = inputs.get(i);
-
-            if(newGuide.containsKey(current)){
-                int curValue = newGuide.get(current);
-                result = result + curValue;
-            }
-        }
-        System.out.println(result);
-    }
+    
 }   
 
 
