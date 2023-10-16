@@ -7,6 +7,7 @@ public class dayThree{
 
     List<String> inputs = new ArrayList<>();
     String guideStr = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    int result = 0;
 
     public static void main(String[] args){
 
@@ -23,7 +24,8 @@ public class dayThree{
         catch(Exception e){
             e.printStackTrace();
         } 
-        obj.func(obj.inputs);       
+        obj.func(obj.inputs);    
+        System.out.println(obj.result);   
     }
     public void func(List<String> input){
         String current = "", A = "", B = "";
@@ -33,9 +35,30 @@ public class dayThree{
             num = (current.length() - 1) / 2;
             A = current.substring(0, num + 1);
             B = current.substring(num + 1);
+            compare(A, B);
         }
-        System.out.println(current);
-        System.out.println(A);
-        System.out.println(B);
+         System.out.println(current);
+         System.out.println(A);
+         System.out.println(B);
+    }
+    public void compare(String a, String b){
+        char first, second, next = ' ';
+        for(int i = 0; i < a.length(); i++){
+            first = a.charAt(i);
+            for(int j = 0; j < b.length(); j++){
+                second = b.charAt(j);
+                if(first == second){
+                    next = first;
+                }
+            }
+        }
+        value(next);
+    }
+    public void value(char ch){
+        for(int i = 0; i < guideStr.length(); i++){
+            if(ch == guideStr.charAt(i)){
+                result = result + (i + 1);
+            }
+        }
     }
 }
