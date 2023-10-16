@@ -22,15 +22,16 @@ public class dayThree{
         }
         catch(Exception e){
             e.printStackTrace();
-        }        
+        } 
+        obj.func(obj.inputs);       
     }
-    public void func(ArrayList<String> input){
+    public void func(List<String> input){
         String current = "", A = "", B = "";
         int num;
         for(int i = 0; i < input.size(); i++){
             current = input.get(i);
             num = (current.length() - 1) / 2;
-            A = current.substring(0, num);
+            A = current.substring(0, num + 1);
             B = current.substring(num + 1);
         }
         System.out.println(current);
