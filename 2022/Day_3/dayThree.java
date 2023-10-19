@@ -14,7 +14,7 @@ public class dayThree{
         dayThree obj = new dayThree();
 
         try{
-            try(BufferedReader br = new BufferedReader(new FileReader("test.txt"))){
+            try(BufferedReader br = new BufferedReader(new FileReader("inputs.txt"))){
                 String line;
                 while((line = br.readLine()) != null){
                     obj.inputs.add(line);
@@ -37,9 +37,9 @@ public class dayThree{
             B = current.substring(num + 1);
             compare(A, B);
         }
-         System.out.println(current);
-         System.out.println(A);
-         System.out.println(B);
+         //System.out.println(current);
+         //System.out.println(A);
+         //System.out.println(B);
     }
     public void compare(String a, String b){
         char first, second, next = ' ';
