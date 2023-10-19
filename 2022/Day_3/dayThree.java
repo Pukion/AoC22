@@ -26,7 +26,11 @@ public class dayThree{
         } 
         obj.func(obj.inputs);    
         System.out.println(obj.result);   
+        obj.result = 0;
+        obj.compare3();
+        System.out.println(obj.result); 
     }
+    
     public void func(List<String> input){
         String current = "", A = "", B = "";
         int num;
@@ -41,6 +45,7 @@ public class dayThree{
          //System.out.println(A);
          //System.out.println(B);
     }
+
     public void compare(String a, String b){
         char first, second, next = ' ';
         for(int i = 0; i < a.length(); i++){
@@ -54,10 +59,27 @@ public class dayThree{
         }
         value(next);
     }
+
     public void value(char ch){
         for(int i = 0; i < guideStr.length(); i++){
             if(ch == guideStr.charAt(i)){
                 result = result + (i + 1);
+            }
+        }
+    }
+
+    public void compare3(){
+        String first, second, third;
+        char same = ' ';
+        for(int i = 0; i < inputs.size(); i += 3){
+            first = inputs.get(i);
+            second = inputs.get(i+1);
+            third = inputs.get(i+2);
+            for(int j = 0; j < guideStr.length(); j++){
+                if(first.contains(Character.toString(guideStr.charAt(j))) && second.contains(Character.toString(guideStr.charAt(j))) && third.contains(Character.toString(guideStr.charAt(j)))){
+                    same = guideStr.charAt(j);
+                    value(same);
+                }
             }
         }
     }
