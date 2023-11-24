@@ -16,12 +16,13 @@ public class Java {
     public static void main(String[] args) throws Exception{
 
         try{
-            BufferedReader br = new BufferedReader(new FileReader("input.txt"));
-
-            String line;
-            while((line = br.readLine()) != null){
-                inputs.add(line);
+            try (BufferedReader br = new BufferedReader(new FileReader("input.txt"))) {
+                String line;
+                while((line = br.readLine()) != null){
+                    inputs.add(line);
+                }
             }
+
             for(int i = 0; i < inputs.size(); i++){
                 currentString = inputs.get(i);
                 if(!currentString.isEmpty()){
